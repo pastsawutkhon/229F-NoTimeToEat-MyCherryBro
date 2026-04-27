@@ -5,15 +5,15 @@ public class Player2DController : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public float jumpForce = 3f;
-    public int maxJumps = 2; 
+    public int maxJumps = 2;
+    public bool canMove = true;
+    public bool IsGrounded { get; private set; }
 
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private float _moveInputValue;
-    
-    private bool _isGrounded;
-    private int _jumpCount; 
+    private int _jumpCount;
 
     void Start()
     {
@@ -26,17 +26,24 @@ public class Player2DController : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
-        _moveInputValue = (Keyboard.current.dKey.isPressed ? 1 : 0) - (Keyboard.current.aKey.isPressed ? 1 : 0);
-
-        if (_moveInputValue < 0) { _spriteRenderer.flipX = true; }
-        else if (_moveInputValue > 0) { _spriteRenderer.flipX = false; }
-
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (canMove)
         {
-            if (_isGrounded || _jumpCount < maxJumps)
+            _moveInputValue = (Keyboard.current.dKey.isPressed ? 1 : 0) - (Keyboard.current.aKey.isPressed ? 1 : 0);
+
+            if (_moveInputValue < 0) { _spriteRenderer.flipX = true; }
+            else if (_moveInputValue > 0) { _spriteRenderer.flipX = false; }
+
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                PerformJump();
+                if (IsGrounded || _jumpCount < maxJumps)
+                {
+                    PerformJump();
+                }
             }
+        }
+        else
+        {
+            _moveInputValue = 0;
         }
 
         UpdateAnimations();
@@ -44,7 +51,10 @@ public class Player2DController : MonoBehaviour
 
     void FixedUpdate()
     {
-        _rb.linearVelocity = new Vector2(_moveInputValue * moveSpeed, _rb.linearVelocity.y);
+        if (canMove)
+        {
+            _rb.linearVelocity = new Vector2(_moveInputValue * moveSpeed, _rb.linearVelocity.y);
+        }
     }
 
     private void PerformJump()
@@ -61,18 +71,19 @@ public class Player2DController : MonoBehaviour
         }
 
         _jumpCount++;
-        _isGrounded = false;
+        IsGrounded = false;
     }
 
     private void UpdateAnimations()
     {
-        bool isRunning = Mathf.Abs(_moveInputValue) > 0 && _isGrounded;
+        if(!canMove) return;
+        bool isRunning = Mathf.Abs(_moveInputValue) > 0 && IsGrounded;
         _animator.SetBool("Run", isRunning);
 
-        bool isJumping = !_isGrounded && _rb.linearVelocity.y > 0.1f;
+        bool isJumping = !IsGrounded && _rb.linearVelocity.y > 0.1f;
         _animator.SetBool("Jump", isJumping);
 
-        bool isFalling = !_isGrounded && _rb.linearVelocity.y < -0.1f;
+        bool isFalling = !IsGrounded && _rb.linearVelocity.y < -0.1f;
         _animator.SetBool("Fall", isFalling);
     }
 
@@ -80,8 +91,8 @@ public class Player2DController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            _isGrounded = true;
-            _jumpCount = 0; 
+            IsGrounded = true;
+            _jumpCount = 0;
         }
     }
 
@@ -89,8 +100,8 @@ public class Player2DController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            _isGrounded = true;
-            _jumpCount = 0; 
+            IsGrounded = true;
+            _jumpCount = 0;
         }
     }
 
@@ -98,7 +109,7 @@ public class Player2DController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            _isGrounded = false;
+            IsGrounded = false;
             if (_jumpCount == 0) _jumpCount = 1;
         }
     }
