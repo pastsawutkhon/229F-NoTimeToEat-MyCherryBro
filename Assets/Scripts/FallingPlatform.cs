@@ -8,6 +8,7 @@ public class FallingPlatform : MonoBehaviour
     private Vector2 _startPos;
     private bool _isPlayerOn;
     private Animator _animator;
+    private bool hasGroundHit = false;
 
     void Start()
     {
@@ -19,11 +20,15 @@ public class FallingPlatform : MonoBehaviour
     {
         if (_isPlayerOn)
         {
-            transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
+            if (!hasGroundHit)
+            {
+                transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
+            }
         }
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, _startPos, returnSpeed * Time.deltaTime);
+            hasGroundHit = false;
         }
 
         if (_animator != null)
@@ -43,6 +48,10 @@ public class FallingPlatform : MonoBehaviour
                 // [แก้บั๊ก] จับผู้เล่นมาเป็น Child ของ Platform 
                 collision.transform.SetParent(transform);
             }
+        }
+        else if (collision.gameObject.CompareTag("Ground"))
+        {
+            hasGroundHit = true;
         }
     }
 

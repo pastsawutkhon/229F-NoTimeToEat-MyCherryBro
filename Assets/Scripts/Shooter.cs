@@ -22,7 +22,7 @@ public class Shooter : MonoBehaviour
             {
                 target.transform.position = new Vector2(hit.point.x, hit.point.y);
 
-                Vector2 projectileVelocity = CalculateProjectileVelocity(shootPoint.position, hit.point, 1f);
+                Vector2 projectileVelocity = CalculateProjectileVelocity(shootPoint.position, hit.point, 0.75f);
 
                 Rigidbody2D shootBullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity);
 
