@@ -221,7 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f3da72dd9653a488807b2aa7c0636e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  health: 10
+  maxHealth: 4
+  currentHealth: 0
+  spawnPoint: {fileID: 0}
 --- !u!114 &6918330985578002411
 MonoBehaviour:
   m_ObjectHideFlags: 0

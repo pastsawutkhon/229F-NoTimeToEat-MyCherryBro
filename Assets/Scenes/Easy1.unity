@@ -8875,6 +8875,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5841229, y: 1.747319}
   m_EdgeRadius: 0
+--- !u!4 &1807188345 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 440792112572711108, guid: 6596e32ae9ac35043ae7fe7e5c2fe2b1, type: 3}
+  m_PrefabInstance: {fileID: 1606009978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1814318515
 GameObject:
   m_ObjectHideFlags: 0
@@ -8950,7 +8955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cf15081cce3394db34aa76525b4e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallOut
-  _spawnPoint: {fileID: 2125979393}
+  _spawnPoint: {fileID: 0}
 --- !u!61 &1894342876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9136,37 +9141,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2125979393
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2125979394}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2125979394
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125979393}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.83, y: -1.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2079991273770226086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9218,15 +9192,7 @@ PrefabInstance:
     - target: {fileID: 2724583068452873876, guid: 8fcadfe877d02a64fa0957d4eff2129f, type: 3}
       propertyPath: spawnPoint
       value: 
-      objectReference: {fileID: 2125979394}
-    - target: {fileID: 2724583068452873876, guid: 8fcadfe877d02a64fa0957d4eff2129f, type: 3}
-      propertyPath: blinkInterval
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2724583068452873876, guid: 8fcadfe877d02a64fa0957d4eff2129f, type: 3}
-      propertyPath: invincibilityDuration
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1807188345}
     - target: {fileID: 3753562891350559825, guid: 8fcadfe877d02a64fa0957d4eff2129f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -9330,7 +9296,6 @@ SceneRoots:
   - {fileID: 1384483064}
   - {fileID: 462005511}
   - {fileID: 1606009978}
-  - {fileID: 2125979394}
   - {fileID: 2079991273770226086}
   - {fileID: 1213511751}
   - {fileID: 472774712}
