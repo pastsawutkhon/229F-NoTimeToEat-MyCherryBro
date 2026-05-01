@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Bg
+  - Bullet
+  - Breakable
   layers:
   - Default
   - TransparentFX
