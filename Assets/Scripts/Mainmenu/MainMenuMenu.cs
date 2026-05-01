@@ -1,22 +1,24 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // สำคัญมาก ต้องมีบรรทัดนี้เพื่อใช้คำสั่งเปลี่ยนด่าน
+using UnityEngine.SceneManagement;
 
-public class MainMenuMenu : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
-    // ฟังก์ชันนี้จะถูกเรียกเมื่อกดปุ่ม Play
-    public void PlayGame()
+    // 1. ฟังก์ชันโหลดด่านด้วย "ตัวเลข" (ใช้กับปุ่ม Play หรือ Back)
+    public void LoadSceneByIndex(int sceneIndex)
     {
-        // สั่งให้โหลดด่านถัดไป (ด่านที่ 1 ของเราจะอยู่ลำดับที่ 1 ใน Build Settings)
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneIndex);
     }
 
-    // ฟังก์ชันนี้จะถูกเรียกเมื่อกดปุ่ม Quit
+    // 2. ฟังก์ชันโหลดด่านด้วย "ชื่อด่าน" (ใช้กับปุ่มเข้าหน้า Credit)
+    public void LoadSceneByName(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    // 3. ฟังก์ชันออกเกม (ใช้กับปุ่ม Quit)
     public void QuitGame()
     {
-        // สั่งปิดเกม
         Application.Quit();
-
-        // (บรรทัดนี้ใส่ไว้เพื่อให้รู้ว่าปุ่มทำงานตอนเราเทสต์ใน Unity Editor เพราะ Application.Quit จะเห็นผลแค่ตอนเซฟเป็นตัวเกมเต็มๆ เท่านั้น)
-        Debug.Log("กดปุ่มออกจากเกมแล้ว!");
+        Debug.Log("ออกจากเกมแล้ว!");
     }
 }
