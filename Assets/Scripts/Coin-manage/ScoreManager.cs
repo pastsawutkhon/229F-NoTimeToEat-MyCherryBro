@@ -1,24 +1,26 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Coin : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
-    [Header("มูลค่าของเหรียญนี้")]
-    public int coinValue = 1; // ตั้งค่าได้ว่าเหรียญนี้ได้กี่คะแนน (เช่น เหรียญทอง=1, เหรียญเพชร=5)
+    // สร้างตัวแทนของ ScoreManager ให้สคริปต์อื่นเรียกใช้ได้ง่ายๆ
+    public static ScoreManager instance;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    [Header("คะแนนเหรียญปัจจุบัน")]
+    public int coinScore = 0;
+
+    void Awake()
     {
-        // เช็กว่าคนที่มาชนคือ "Player" หรือเปล่า
-        if (collision.CompareTag("Player"))
+        // กำหนดค่าเริ่มต้นให้ instance
+        if (instance == null)
         {
-            // ส่งคะแนนไปเพิ่มใน ScoreManager
-            if (ScoreManager.instance != null)
-            {
-                ScoreManager.instance.AddCoin(coinValue);
-            }
-
-            // ทำลายเหรียญนี้ทิ้งออกจากฉาก
-            Destroy(gameObject);
+            instance = this;
         }
+    }
+
+    // ฟังก์ชันสำหรับรับคะแนนเพิ่ม
+    public void AddCoin(int amount)
+    {
+        coinScore += amount;
+        Debug.Log("เก็บเหรียญได้! ตอนนี้มีเหรียญ: " + coinScore); // แสดงผลใน Console
     }
 }
