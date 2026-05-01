@@ -18,8 +18,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Medium1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/End-sence.unity
+    path: Assets/Scenes/EndSence.unity
     guid: e647ee3185ef5c24aa9ffffc97633045
+  - enabled: 1
+    path: Assets/Scenes/EndCredit.unity
+    guid: 234a2026d4c56ca46a2e86c7d5117aaa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

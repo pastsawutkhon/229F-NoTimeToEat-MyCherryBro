@@ -3,19 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // 1. ฟังก์ชันโหลดด่านด้วย "ตัวเลข" (ใช้กับปุ่ม Play หรือ Back)
+    // โหลดด่านด้วยตัวเลข (อัปเดตใหม่ ให้ล้างคะแนนตอนกลับเมนู)
     public void LoadSceneByIndex(int sceneIndex)
     {
+        // ถ้าเป็นการโหลดหน้า MainMenu (ด่าน 0) ให้รีเซ็ตเหรียญเป็น 0
+        if (sceneIndex == 0 && ScoreManager.instance != null)
+        {
+            ScoreManager.instance.coinScore = 0;
+        }
+
         SceneManager.LoadScene(sceneIndex);
     }
 
-    // 2. ฟังก์ชันโหลดด่านด้วย "ชื่อด่าน" (ใช้กับปุ่มเข้าหน้า Credit)
+    // โหลดด่านด้วยชื่อ
     public void LoadSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
 
-    // 3. ฟังก์ชันออกเกม (ใช้กับปุ่ม Quit)
+    // ออกจากเกม
     public void QuitGame()
     {
         Application.Quit();

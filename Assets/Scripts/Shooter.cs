@@ -9,25 +9,25 @@ public class Shooter : MonoBehaviour
 
     void Update()
     {
-        Vector2 screePos = Mouse.current.position.ReadValue();
-
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Ray ray = Camera.main.ScreenPointToRay(screePos);
-            Debug.DrawRay(ray.origin, ray.direction * 5, Color.red, 5f);
+            // 1. อ่านค่าตำแหน่งเมาส์บนหน้าจอ
+            Vector2 screenPos = Mouse.current.position.ReadValue();
 
-            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+            // 2. แปลงตำแหน่งเมาส์ให้กลายเป็นพิกัดในเกม 2D โดยใช้ Camera
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+            worldPos.z = 0f; // บังคับให้แกน Z เป็น 0 เสมอเพื่อไม่ให้เป้าจมไปในฉากหลัง
 
-            if (hit.collider != null)
+            // 3. อัปเดตตำแหน่งเป้า (ถ้ามี)
+            if (target != null)
             {
-                target.transform.position = new Vector2(hit.point.x, hit.point.y);
-
-                Vector2 projectileVelocity = CalculateProjectileVelocity(shootPoint.position, hit.point, 0.75f);
-
-                Rigidbody2D shootBullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity);
-
-                shootBullet.linearVelocity = projectileVelocity;
+                target.transform.position = worldPos;
             }
+
+            // 4. คำนวณความเร็วและยิงกระสุนออกไป
+            Vector2 projectileVelocity = CalculateProjectileVelocity(shootPoint.position, worldPos, 0.75f);
+            Rigidbody2D shootBullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity);
+            shootBullet.linearVelocity = projectileVelocity;
         }
     }
 
