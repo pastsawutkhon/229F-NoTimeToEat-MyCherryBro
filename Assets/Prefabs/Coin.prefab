@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3145089111731301199}
   - component: {fileID: 5799311797806714435}
   - component: {fileID: 2697015608548414873}
+  - component: {fileID: 2865952509182177070}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -128,3 +129,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinValue: 1
+--- !u!60 &2865952509182177070
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766877325650928426}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.039423402, y: 0.07971176}
+      - {x: -0.04697629, y: 0.021293916}
+      - {x: -0.0773263, y: -0.008456945}
+      - {x: -0.07971176, y: -0.049999997}
+      - {x: -0.06064696, y: -0.07877656}
+      - {x: -0.007770648, y: -0.08251759}
+      - {x: 0.006267309, y: -0.07314122}
+      - {x: 0.05654709, y: -0.073453024}
+      - {x: 0.07222935, y: -0.05438822}
+      - {x: 0.08064707, y: -0.0028059483}
+      - {x: 0.018846925, y: 0.07971164}
+  m_UseDelaunayMesh: 1
