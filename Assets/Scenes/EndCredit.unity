@@ -403,12 +403,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Team No time to eat\n\n1670701026 Pastsawut Khongman 229F No.5 \nGameScene,
-    ShootSystem, InGameUI\n1670707619 Supphakit Buaphan 229F No.38 \nScriptsEnemy,
-    ScoreSystem, AddModelAsset, Effect\n1670707650 Chorchompoo Mitathiphan 229F No.39
-    \nMainMenuScene, UI, LevelDesign, AddBGM, ScoreSystem\n\nThank you for Free Assets\nBackground
-    Music by Suno AI\nBackground Menu,Game by Chat GPT\nAnimated Low Poly 3D Models
-    by ithappy\nCasual Food Pack by Lumo-Art 3D\n"
+  m_text: "Team No time to eat\n\n1670701026 Pastsawut Khongman 229F  No.5 \ncoding,level
+    design,prefabs,animation \n1670707619 Supphakit Buaphan 229F  No.38 \ncoding,ui,tiled
+    palette,menu,sfx \n1670707650 Chorchompoo Mitathiphan 229F  No.39 \nlevel design,map
+    design,music generate\n\nThank you for Free Assets \nBackground Music by Suno
+    AI \nAsset : Pixel Adventure 1 by Pixel Frog \n        : Free Platform Game Assets
+    by Bayat Games\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
