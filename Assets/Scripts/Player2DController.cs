@@ -59,6 +59,12 @@ public class Player2DController : MonoBehaviour
 
     private void PerformJump()
     {
+        // [เพิ่ม] เล่นเสียงกระโดด
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.PlaySound(SoundManager.instance.jumpSound);
+        }
+
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0f);
         _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         _animator.SetBool("Run", false);
@@ -76,7 +82,7 @@ public class Player2DController : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        if(!canMove) return;
+        if (!canMove) return;
         bool isRunning = Mathf.Abs(_moveInputValue) > 0 && IsGrounded;
         _animator.SetBool("Run", isRunning);
 

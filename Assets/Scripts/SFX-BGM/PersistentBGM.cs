@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PersistentBGM : MonoBehaviour
 {
-    // สร้างตัวแปร static เพื่อเก็บตัวมันเองไว้เป็นต้นแบบ (Singleton)
     public static PersistentBGM instance;
 
     void Awake()
